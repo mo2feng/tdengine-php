@@ -1,6 +1,6 @@
 <?php
 
-namespace Mofeng\Tdengine;
+namespace Mofengme\Tdengine;
 
 use Exception;
 

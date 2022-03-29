@@ -1,6 +1,7 @@
 <?php
 
-use Mofeng\Tdengine\TdEngine;
+use Mofengme\Tdengine\TdEngine;
+use Mofengme\Tdengine\TdEngineException;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
@@ -30,7 +31,7 @@ class TdEngineTest extends TestCase
         $errorResponse = new MockResponse('{"status":"error","code":534,"desc":"syntax error near \'Incomplete SQL statement\'"}');
         $client        = new MockHttpClient($errorResponse);
         $t             = new TdEngine("mock-key");
-        $this->expectException(\Mofeng\Tdengine\TdEngineException::class);
+        $this->expectException(TdEngineException::class);
         $this->expectExceptionMessage('syntax error near \'Incomplete SQL statement\'');
         $t->raw_query($client, 'show tablesss');
 

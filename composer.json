@@ -1,5 +1,5 @@
 {
-    "name": "mofeng\/tdengine",
+    "name": "mofengme\/tdengine",
     "description": "rest client for db tdengine",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mofeng\\Tdengine\\": "src"
+            "Mofengme\\Tdengine\\": "src"
         }
     },
     "require-dev": {

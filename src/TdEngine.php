@@ -1,6 +1,6 @@
 <?php
 
-namespace Mofeng\Tdengine;
+namespace Mofengme\Tdengine;
 
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\ResponseInterface;
