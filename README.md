@@ -32,8 +32,8 @@ $client->execute("show stables");
 
 You can contribute in one of three ways:
 
-1. File bug reports using the [issue tracker](https://github.com/mofeng/tdgine/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/mofeng/tdgine/issues).
+1. File bug reports using the [issue tracker](https://github.com/mofengme/tdengine-php/issues).
+2. Answer questions or fix bugs on the [issue tracker](https://github.com/mofengme/tdengine-php/issues).
 3. Contribute new features or update the wiki.
 
 _The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and
