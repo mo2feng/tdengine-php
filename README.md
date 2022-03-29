@@ -7,7 +7,7 @@
 ## Installing
 
 ```shell
-$ composer require mofeng/tdgine -vvv
+$ composer require mofengme/tdengine -vvv
 ```
 
 ## Usage
