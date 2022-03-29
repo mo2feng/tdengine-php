@@ -28,9 +28,9 @@ class TdEngine
 
     public function __construct($database, $host = '127.0.0.1', $port = '6041', $user = 'root', $password = 'taosdata')
     {
-        $this->host = $host;
-        $this->port = $port;
-        $this->user = $user;
+        $this->host     = $host;
+        $this->port     = $port;
+        $this->user     = $user;
         $this->password = $password;
         $this->database = $database;
     }
@@ -44,15 +44,16 @@ class TdEngine
      * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface|\Mofeng\Tdengine\TdEngineException
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Mofengme\Tdengine\TdEngineException
      */
     public function raw_query($client, string $sql): array
     {
-        $url = match (empty($this->database)) {
+        $url          = match (empty($this->database)) {
             true => '/rest/sql',
-            false => '/rest/sql/'.$this->database,
+            false => '/rest/sql/' . $this->database,
         };
-        $response = $client->request('POST', $url, [
+        $response     = $client->request('POST', $url, [
             'body' => $sql,
         ]);
         $jsonResponse = json_decode($response->getContent());
@@ -65,15 +66,15 @@ class TdEngine
 
     protected function buildUri(): string
     {
-        return 'http://'.$this->host.':'.$this->port;
+        return 'http://' . $this->host . ':' . $this->port;
     }
 
     /**
      * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
-     * @throws \Mofeng\Tdengine\TdEngineException
-     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface|
+     * @throws \Mofengme\Tdengine\TdEngineException
      */
     public function execute($sql): array
     {
@@ -85,7 +86,7 @@ class TdEngine
      * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
-     * @throws \Mofeng\Tdengine\TdEngineException
+     * @throws \Mofengme\Tdengine\TdEngineException
      */
     public function query($sql): array
     {
@@ -106,8 +107,8 @@ class TdEngine
 
     private function buildResponseData(mixed $jsonResponse): array
     {
-        $head = $jsonResponse->head;
-        $data = $jsonResponse->data;
+        $head   = $jsonResponse->head;
+        $data   = $jsonResponse->data;
         $result = [];
         foreach ($data as $key => $value) {
             foreach ($value as $k => $v) {
